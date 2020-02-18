@@ -195,7 +195,7 @@ function makeStyles({
     },
 
     disabledText: {
-      fontSize: 14 * scaler,
+      fontSize: 12 * scaler,
       color: '#BBBBBB',
       alignSelf: 'center',
       justifyContent: 'center',
