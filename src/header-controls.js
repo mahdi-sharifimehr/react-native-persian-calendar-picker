@@ -34,7 +34,12 @@ function HeaderControls(props) {
   const next = nextTitle ? nextTitle : 'بعدی';
   const month = MONTHS[currentMonth];
   const year = currentYear;
-
+  const latinToPersianMap = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
+  const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g];
+  var year_string = year + '';
+  for (let i = 0; i < 10; i++) {
+  year_string = year_string.replace(latinNumbers[i], latinToPersianMap[i]);
+  }
   const accessibilityProps = { accessibilityRole: 'header' };
   if (Platform.OS === 'web') {
     accessibilityProps['aria-level'] = headingLevel;
@@ -51,7 +56,7 @@ function HeaderControls(props) {
 
       <View>
         <Text style={[styles.monthLabel, textStyle]} {...accessibilityProps}>
-          {month} {year}
+          {month} {year_string}
         </Text>
       </View>
 
