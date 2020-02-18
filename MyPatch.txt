@@ -1,0 +1,28 @@
+insert in line 37 of header-controls.js
+
+const latinToPersianMap = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
+const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g];
+var year_string = year + '';
+for (let i = 0; i < 10; i++) {
+year_string = year_string.replace(latinNumbers[i], latinToPersianMap[i]);
+}
+
+and replace {year_string} to {year} in line 54
+
+
+
+
+
+insert in line 139 of Day.js
+
+const latinToPersianMap = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
+const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g];
+var day_string = day + '';
+for (let i = 0; i < 10; i++) {
+    day_string = day_string.replace(latinNumbers[i], latinToPersianMap[i]);
+}
+
+and replace {day_string} to {day} in line 259 and 268
+
+
+change style.js: change font size in disabledText to 12
