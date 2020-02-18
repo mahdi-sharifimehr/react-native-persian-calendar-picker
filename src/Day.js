@@ -136,6 +136,13 @@ function Day(props) {
     dateIsDisabled ||
     dateIsBeforeMinDuration ||
     dateIsAfterMaxDuration;
+  
+  const latinToPersianMap = ['۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '۰'];
+  const latinNumbers = [/1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g, /0/g];
+  var day_string = day + '';
+  for (let i = 0; i < 10; i++) {
+      day_string = day_string.replace(latinNumbers[i], latinToPersianMap[i]);
+  }
 
   // If date is in range let's apply styles
   if (!dateOutOfRange) {
@@ -249,7 +256,7 @@ function Day(props) {
               selectedDayColorStyle,
             ]}
           >
-            {day}
+            {day_string}
           </Text>
         </TouchableOpacity>
       </View>
@@ -258,7 +265,7 @@ function Day(props) {
     // dateOutOfRange = true
     return (
       <View style={styles.dayWrapper}>
-        <Text style={[textStyle, styles.disabledText]}>{day}</Text>
+        <Text style={[textStyle, styles.disabledText]}>{day_string}</Text>
       </View>
     );
   }
